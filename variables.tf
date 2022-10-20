@@ -27,3 +27,11 @@ variable "cert_namespace" {
     default     = "cert-manager"
     description = "cert-manager namespace"
 }
+
+variable "credential_path" {}
+
+variable "gcp_project" {}
+
+variable "cluster_name" {}
+
+variable "cluster_location" {}
