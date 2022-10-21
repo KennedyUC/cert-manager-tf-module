@@ -10,9 +10,9 @@ resource "kubectl_manifest" "cert_manager" {
 }
 
 // install cert manager using helm
-resource "helm_release" "cert-manager" {
+resource "helm_release" "cert_manager" {
   depends_on       = [kubectl_manifest.cert_manager]
-  name             = "cert-manager"
+  name             = "cert_manager"
   namespace        = var.cert_namespace
   create_namespace = var.helm_create_namespace
   chart            = "cert-manager"
