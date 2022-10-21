@@ -1,28 +1,3 @@
-// connect to the kubernetes cluster
-// resource "null_resource" "connect_k8s" {
-//   provisioner "local-exec" {
-//     command = "sudo gcloud auth activate-service-account --key-file ${var.credential_path}"
-//   }
-//   provisioner "local-exec" {
-//     command = "sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin"
-//   }
-//   provisioner "local-exec" {
-//     command = "sudo gcloud config set project ${var.gcp_project}"
-//   }
-//   provisioner "local-exec" {
-//     command = "sudo gcloud config set container/cluster ${var.cluster_name}"
-//   }
-//   provisioner "local-exec" {
-//     command = "sudo gcloud config set compute/zone ${var.cluster_location}"
-//   }
-//   provisioner "local-exec" {
-//     command = "sudo gcloud container clusters get-credentials ${var.cluster_name} --zone ${cluster_location} --project ${var.gcp_project}"
-//   }
-//   provisioner "local-exec" {
-//     command = "sudo sleep 1m"
-//   }
-// }
-
 // fetch the kubernetes manifests
 data "kubectl_path_documents" "manifests" {
     pattern = "../manifest/*.yaml"
