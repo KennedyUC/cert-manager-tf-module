@@ -4,15 +4,15 @@ data "kubectl_path_documents" "manifests" {
 } 
 
 // deploy the kubernetes resources to the cluster
-resource "kubectl_manifest" "cert_manager" {
+resource "kubectl_manifest" "cert-manager" {
     count     = length(data.kubectl_path_documents.manifests.documents)
     yaml_body = element(data.kubectl_path_documents.manifests.documents, count.index)
 }
 
 // install cert manager using helm
 resource "helm_release" "cert-manager" {
-  depends_on       = [kubectl_manifest.cert_manager]
-  name             = "cert_manager"
+  depends_on       = [kubectl_manifest.cert-manager]
+  name             = "cert-manager"
   namespace        = var.cert_namespace
   create_namespace = var.helm_create_namespace
   chart            = "cert-manager"
