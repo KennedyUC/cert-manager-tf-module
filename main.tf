@@ -19,6 +19,6 @@ resource "helm_release" "cert-manager" {
   repository       = var.cert_chart_repo
   version          = var.cert_chart_version
   values = [
-    file("./helm-values/cert-manager-values.yaml")]
+    file("${var.cert-manager-chart-values}")]
   atomic           = var.enable_atomic
 }

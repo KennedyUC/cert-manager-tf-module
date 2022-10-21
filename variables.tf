@@ -27,3 +27,8 @@ variable "cert_namespace" {
     default     = "cert-manager"
     description = "cert-manager namespace"
 }
+
+variable "cert-manager-chart-values" {
+    type        = string
+    description = "path to the cert-manager helm chart"
+}
